@@ -1,13 +1,13 @@
 ---
-title: "Not Sure Where to Start?<br>Meet All Thrive's Free AI Coach"
+title: "Not Sure Where to Start AI?<br>Meet All Thrive's Free AI Coach GPT"
 author: "Allie Jones"
 date: "2025-08-01"
 categories: ["AI", "Free Resources", "Personal Development"]
-featured_image: "/images/insights/all-thrive-custom-chatgpt-thumbnail.jpg"
+featured_image: "/images/insights/all-thrive-chatgpt.png"
 youtube_video: ""
 excerpt: "Get instant access to our free custom ChatGPT that helps you discover exactly how AI can transform your life and work. No signup required."
 featured_on_homepage: true
-priority: 0
+priority: 3
 draft: false
 ---
 
@@ -35,17 +35,11 @@ Most people ask AI vague questions like "help me with my business" and get gener
 
 This framework transforms generic AI advice into personalized, actionable strategies tailored to your unique situation.
 
-## How It Works (3 Minutes)
+## How It Works
 
 1. **[Click here](https://chatgpt.com/g/g-68ace83f6b88819194a56c72aabfa62e-all-thrive-ai)** No signup needed
 2. **Start talking** Describe your situation naturally
 3. **Get your plan** Receive personalized next steps instantly
-
-## Real Results
-
-**Sarah** (Small Business Owner): Reduced customer response times by 70%, freed up 15 hours weekly by focusing on one AI chatbot instead of trying multiple tools.
-
-**Mike** (Marketing Manager): Increased team productivity 40% using AI for first-draft content, allowing focus on strategy and creativity.
 
 ## What Makes This Free Tool Different
 
@@ -56,8 +50,3 @@ This framework transforms generic AI advice into personalized, actionable strate
 
 > We're giving this away because everyone deserves access to quality AI guidance, regardless of budget. When more people succeed with AI, everyone benefits.
 
----
-
-**Ready to discover how AI can specifically help you?**
-
-## [🚀 Start Your Free AI Conversation Now](https://chatgpt.com/g/g-68ace83f6b88819194a56c72aabfa62e-all-thrive-ai)
