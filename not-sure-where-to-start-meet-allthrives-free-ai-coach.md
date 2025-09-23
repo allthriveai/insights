@@ -1,20 +1,22 @@
 ---
-title: "Get Our Free Custom ChatGPT: Your Personal AI Readiness Coach"
-author: "AllThrive AI Team"
-date: "2024-03-23"
+title: "Not Sure Where to Start?<br>Meet All Thrive's Free AI Coach"
+author: "Allie Jones"
+date: "2025-08-01"
 categories: ["AI", "Free Resources", "Personal Development"]
 featured_image: "/images/insights/all-thrive-custom-chatgpt-thumbnail.jpg"
 youtube_video: ""
-excerpt: "Get instant access to our free custom ChatGPT that helps you discover exactly how AI can transform your life and work—no signup required."
+excerpt: "Get instant access to our free custom ChatGPT that helps you discover exactly how AI can transform your life and work. No signup required."
 featured_on_homepage: true
 priority: 0
 draft: false
 ---
 
-# Get Our Free Custom ChatGPT: Your Personal AI Readiness Coach
+# Not Sure Where to Start?<br>Meet All Thrive's Free AI Coach
 
-**[Try it now →](https://chatgpt.com/g/g-68ace83f6b88819194a56c72aabfa62e-all-thrive-ai)** - Want to know exactly how AI can help you, but don't know where to start? Our completely free custom ChatGPT acts as your personal AI readiness coach. No signup required, no hidden fees, no catch.
+### Want to know exactly how AI can help you, but don't know where to start?
+Our completely free custom ChatGPT acts as your personal AI readiness coach. No signup required, no hidden fees, no catch.
 
+**[Try it now →](https://chatgpt.com/g/g-68ace83f6b88819194a56c72aabfa62e-all-thrive-ai)** 
 ## The All Thrive Question Framework
 
 Most people ask AI vague questions like "help me with my business" and get generic responses. Our custom ChatGPT teaches you the **SMART-AI** questioning method that unlocks AI's true potential:
@@ -24,7 +26,7 @@ Most people ask AI vague questions like "help me with my business" and get gener
 - **A**ctionable: Focus on implementable solutions
 - **R**elevant: Align with your goals and context
 - **T**ime-bound: Set realistic timelines
-- **AI**-optimized: Frame questions for maximum AI effectiveness
+- **AI**-optimized: Provide context and constraints to get precise answers
 
 ## Why This Changes Everything
 
@@ -35,9 +37,9 @@ This framework transforms generic AI advice into personalized, actionable strate
 
 ## How It Works (3 Minutes)
 
-1. **[Click here](https://chatgpt.com/g/g-68ace83f6b88819194a56c72aabfa62e-all-thrive-ai)** - No signup needed
-2. **Start talking** - Describe your situation naturally
-3. **Get your plan** - Receive personalized next steps instantly
+1. **[Click here](https://chatgpt.com/g/g-68ace83f6b88819194a56c72aabfa62e-all-thrive-ai)** No signup needed
+2. **Start talking** Describe your situation naturally
+3. **Get your plan** Receive personalized next steps instantly
 
 ## Real Results
 
@@ -47,13 +49,12 @@ This framework transforms generic AI advice into personalized, actionable strate
 
 ## What Makes This Free Tool Different
 
-- **100% Free** - No email, no credit card, no limits
-- **Professional Quality** - Same guidance as $5,000+ consultations  
-- **Conversational** - No complex forms or assessments
-- **Personalized** - Tailored to your specific industry and challenges
-- **Available 24/7** - Ready when you are
+- **100% Free** No email, no credit card, no limits
+- **Conversational** No complex forms or assessments
+- **Personalized** Tailored to your specific industry and challenges
+- **Available 24/7** Ready when you are
 
-We're giving this away because everyone deserves access to quality AI guidance, regardless of budget. When more people succeed with AI, everyone benefits.
+> We're giving this away because everyone deserves access to quality AI guidance, regardless of budget. When more people succeed with AI, everyone benefits.
 
 ---
 
