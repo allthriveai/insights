@@ -1,7 +1,7 @@
 ---
 title: "Winning 1st Place at MCP - AI Agents Hackathon: Building Pitch Scoop"
 author: "Allie Jones"
-date: "2024-09-19"
+date: "2025-09-19"
 categories: ["AI", "Hackathon", "FastAPI", "Redis"]
 featured_image: "/images/insights/pitchscoop.png"
 youtube_video: ""

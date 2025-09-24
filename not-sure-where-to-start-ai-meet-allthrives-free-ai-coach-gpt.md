@@ -1,5 +1,5 @@
 ---
-title: "Not Sure Where to Start AI?<br>Meet All Thrive's Free AI Coach GPT"
+title: "Not Sure Where to Start With AI?<br>Meet All Thrive's Free AI Coach GPT"
 author: "Allie Jones"
 date: "2025-08-01"
 categories: ["AI", "Free Resources", "Personal Development"]
@@ -11,7 +11,7 @@ priority: 3
 draft: false
 ---
 
-# Not Sure Where to Start?<br>Meet All Thrive's Free AI Coach
+# Not Sure Where to Start With AI?<br>Meet All Thrive's Free AI Coach
 
 ### Want to know exactly how AI can help you, but don't know where to start?
 Our completely free custom ChatGPT acts as your personal AI readiness coach. No signup required, no hidden fees, no catch.

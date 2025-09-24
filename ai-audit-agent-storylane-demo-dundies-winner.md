@@ -2,7 +2,7 @@
 title: "AI Audit Agent for Storylane: Wins Most Innovative Use Case at Demo Dundies"
 author: "Allie Jones"
 date: "2025-08-20"
-categories: ["AI", "Innovation", "Storylane", "Demo", "Automation", "Hackathon"]
+categories: ["AI", "Storylane", "Automation", "Hackathon"]
 featured_image: "/images/insights/storylane-qa-editor-agent.png"
 youtube_video: ""
 excerpt: "How our AI Audit Agent won Most Innovative Use Case at Storylane's Demo Dundies Season 2, earning the grand prize trip to Italy through intelligent demo analysis and quality assurance automation."
