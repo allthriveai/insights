@@ -44,7 +44,8 @@ This is powerful because it makes interoperability simple. You choose which func
 
 ## Breaking Down PitchScoop
 
-We decided to try an **MCP-first approach**: build every feature as an AI-callable tool first, then add REST endpoints as wrappers. The frontend (maintained in a [separate repository](https://github.com/yourusername/pitchscoop-frontend)) consumes the same REST APIs that wrap our MCP tools.
+We decided to try an **MCP-first approach**: build every feature as an AI-callable tool first, then add REST endpoints as wrappers. We built this with **Python FAST API** following a strict **Domain Driven Design** principles. and a Typscript seperate repo frontend. 
+
 
 ```mermaid
 graph TD
@@ -71,8 +72,6 @@ graph TD
     J --> J1[users.create_user]
     J --> J2[users.set_role]
 ```
-
-<!-- Add your PitchScoop dashboard/interface image here -->
 
 **Result**: We ended up with 32+ MCP tools organized into 5 domains. Each domain has its own router, models, and business logic. This approach let us quickly test AI-assisted event management while still providing traditional web interfaces.
 
@@ -948,4 +947,4 @@ The future of AI applications isn't just better models—it's better integration
 
 ---
 
-*PitchScoop is an open-source MCP-first platform for AI-assisted pitch competitions. Built with FastAPI, Redis Stack, and Azure OpenAI, it demonstrates production-ready patterns for MCP integration.*
+*PitchScoop is an open-source MCP-first platform for AI-assisted pitch competitions. Built with FastAPI, Redis Stack, and Azure OpenAI, it demonstrates production-ready patterns for MCP integration.* s
