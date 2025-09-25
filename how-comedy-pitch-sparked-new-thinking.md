@@ -2,7 +2,7 @@
 title: "How Doing a Comedy Pitch of Your Startup Can Spark New Ways of Thinking"
 author: "Gina Levy"
 date: "2025-01-23"
-categories: ["Startup Strategy", "Communication", "Innovation", "Pitching"]
+categories: ["Startup Strategy", "Communication", "Innovation", "Pitching", "Awards"]
 featured_image: "/images/insights/gina-comedy-pitch.png"
 youtube_video: ""
 excerpt: "What happens when you pitch your startup as a comedy routine? Lessons from winning The Battery's Tech Roast Comedy Night and why every pitch does better with fun."
@@ -14,13 +14,13 @@ featured_link: ""
 
 # How Doing a Comedy Pitch of Your Startup Can Spark New Ways of Thinking
 
-Last month, I did something that terrified and exhilarated me in equal measure: I pitched my startup as a comedy routine at The Battery's Tech Roast Comedy Night Pitch Competition. Not only did I survive the experience—I won.
+Last month, I did something that terrified and exhilarated me in equal measure: I pitched my startup as a comedy routine at The Battery's Tech Roast Comedy Night Pitch Competition. Not only did I survive the experience I won.
 
 But more importantly, those five minutes on stage fundamentally changed how I think about communicating my vision, connecting with audiences, and even building my product. Here's why every founder should consider doing a comedy pitch of their startup, and what I learned about the transformative power of bringing fun to business.
 
 ## The Challenge: Making AI Event Discovery... Funny?
 
-When I first heard about the Tech Roast competition, my immediate reaction was: "How do you make an AI-powered event discovery platform funny?" My startup, [Kinlia](https://www.kinlia.com/), helps people find events where they'll connect with like-minded individuals. It's solving real problems around social isolation and community building—serious stuff.
+When I first heard about the Tech Roast competition, my immediate reaction was: "How do you make an AI-powered event discovery platform funny?" My startup, [Kinlia](https://www.kinlia.com/), helps people find events where they'll connect with like-minded individuals. It's solving real problems around social isolation and community building serious stuff.
 
 But that's exactly why the comedy challenge was so valuable. When you're forced to find humor in what you do, you have to step outside your founder bubble and see your startup through completely different eyes.
 
@@ -32,9 +32,9 @@ Comedy pitches impose brutal constraints:
 - **The need for laughs** pushes you to find universal truths in your specific problems
 - **Public vulnerability** strips away corporate speak and jargon
 
-These constraints don't water down your message—they crystallize it.
+These constraints don't water down your message they crystallize it.
 
-*Gina's LinkedIn post celebrating her victory at The Battery's Tech Roast Comedy Night Pitch Competition will be embedded here automatically by the site.*
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7310146869945327616" height="780" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
 
 ## What I Discovered Through Laughter
 
@@ -45,7 +45,7 @@ To make Kinlia funny, I had to dig into the absurdities of modern social connect
 - The awkwardness of trying to make friends as an adult
 - The way we swipe through events like we're dating apps for activities
 
-These observations didn't diminish my startup's mission—they illuminated why it matters. When the audience laughed, they were recognizing their own experiences. Comedy became a bridge to empathy.
+These observations didn't diminish my startup's mission they illuminated why it matters. When the audience laughed, they were recognizing their own experiences. Comedy became a bridge to empathy.
 
 ### 2. Humor Reveals Hidden Assumptions
 
@@ -54,13 +54,13 @@ Writing comedy forces you to examine your assumptions from every angle. To find 
 - What social norms around friendship and community are actually ridiculous?
 - Where are the gaps between what we say we want and what we actually do?
 
-These questions led to insights that directly improved my product strategy. The comedy pitch wasn't just entertainment—it was market research disguised as performance art.
+These questions led to insights that directly improved my product strategy. The comedy pitch wasn't just entertainment it was market research disguised as performance art.
 
 ### 3. Authenticity Beats Perfection
 
 In traditional pitches, we polish everything to a high shine. We eliminate uncertainty, downplay challenges, and present ourselves as the inevitable solution to a clear problem.
 
-Comedy demands the opposite. It requires admitting failures, embracing awkwardness, and finding strength in vulnerability. When I joked about my own struggles with social connection—the very problems Kinlia was built to solve—the audience didn't lose confidence in my startup. They connected with me as a human being.
+Comedy demands the opposite. It requires admitting failures, embracing awkwardness, and finding strength in vulnerability. When I joked about my own struggles with social connection the very problems Kinlia was built to solve the audience didn't lose confidence in my startup. They connected with me as a human being.
 
 ## The Science Behind Why Pitches Do Better With Fun
 
@@ -85,7 +85,7 @@ There's actual neuroscience behind why humor makes communication more effective:
 
 ### Start With Story, Not Statistics
 
-Before the comedy pitch, I led with market size and competitive advantages. Now I start with the human story—the moment of social awkwardness that inspired Kinlia. Statistics come later, after I've established emotional connection.
+Before the comedy pitch, I led with market size and competitive advantages. Now I start with the human story the moment of social awkwardness that inspired Kinlia. Statistics come later, after I've established emotional connection.
 
 ### Acknowledge the Elephant in the Room
 
@@ -164,11 +164,11 @@ Ask yourself:
 
 Here's the paradox: taking your startup less seriously can make it more successful. When you're not afraid to laugh at yourself, your industry, and the inevitable absurdities of entrepreneurship, you create space for genuine connection and creative thinking.
 
-Comedy doesn't diminish your mission—it amplifies it by making it more accessible, memorable, and human.
+Comedy doesn't diminish your mission it amplifies it by making it more accessible, memorable, and human.
 
 The future belongs to founders who can solve serious problems with serious dedication while never losing sight of the joy, curiosity, and playfulness that sparked their entrepreneurial journey in the first place.
 
-So next time you're preparing a pitch, ask yourself: where's the fun in this? Your audience—and your startup—will thank you for it.
+So next time you're preparing a pitch, ask yourself: where's the fun in this? Your audience and your startup will thank you for it.
 
 ---
 
@@ -178,4 +178,4 @@ So next time you're preparing a pitch, ask yourself: where's the fun in this? Yo
 
 ---
 
-*Want to see more examples of founders using unconventional approaches to build better startups? [Subscribe to our insights](/newsletter) for weekly stories from the entrepreneurial frontier.*
+*Want to see more examples of founders using unconventional approaches to build better startups? [Subscribe to our insights](/newsletter) for weekly stories from the entrepreneurial frontier.*i

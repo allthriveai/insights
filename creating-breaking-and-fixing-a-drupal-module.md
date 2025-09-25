@@ -9,7 +9,6 @@ excerpt: "Debugging is more than fixing broken code. Learn how to logically thin
 featured_on_homepage: false
 priority: 4
 draft: false
-hiddenFromInsightsIndex: true
 featured_link: "https://events.drupal.org/neworleans2016/sessions/debugging-during-development-creating-breaking-and-fixing-module"
 profile_contributors: []
 ---
@@ -47,4 +46,4 @@ The shift to Drupal 8's architecture requires evolving our debugging practices�
 
 ---
 
-*Originally presented at DrupalCon New Orleans 2016. [View session details →](https://events.drupal.org/neworleans2016/sessions/debugging-during-development-creating-breaking-and-fixing-module)*
+*Originally presented at DrupalCon New Orleans 2016. [View session details →](https://events.drupal.org/neworleans2016/sessions/debugging-during-development-creating-breaking-and-fixing-module)*ca

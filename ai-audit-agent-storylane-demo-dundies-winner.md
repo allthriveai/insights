@@ -2,7 +2,7 @@
 title: "AI Audit Agent for Storylane: Wins Most Innovative Use Case at Demo Dundies"
 author: "Allie Jones"
 date: "2025-08-20"
-categories: ["AI", "Storylane", "Automation", "Hackathon"]
+categories: ["AI", "Storylane", "Hackathon", "Awards"]
 featured_image: "/images/insights/storylane-qa-editor-agent.png"
 youtube_video: ""
 excerpt: "How our AI Audit Agent won Most Innovative Use Case at Storylane's Demo Dundies Season 2, earning the grand prize trip to Italy through intelligent demo analysis and quality assurance automation."
@@ -82,7 +82,7 @@ class StorylaneScraper:
 ```
 
 #### 2. **Multi-Dimensional Quality Analysis**
-Our AI doesn't just check grammar—it analyzes demos across multiple dimensions:
+Our AI doesn't just check grammar it analyzes demos across multiple dimensions:
 
 - **Content Quality**: Clarity, messaging consistency, value proposition alignment
 - **Technical Accuracy**: Integration mentions, feature descriptions, competitive positioning
@@ -111,7 +111,7 @@ class SessionManager:
 ## Why This Won Most Innovative Use Case
 
 ### **1. Novel Application of AI**
-While others built traditional demos, we created an AI agent that **analyzes other demos**. This meta-approach—using Storylane to showcase an AI tool that improves Storylane demos—demonstrated innovative thinking that judges hadn't seen before.
+While others built traditional demos, we created an AI agent that **analyzes other demos**. This meta-approach using Storylane to showcase an AI tool that improves Storylane demos demonstrated innovative thinking that judges hadn't seen before.
 
 ### **2. Real Business Impact**
 The solution addresses a genuine pain point for PreSales teams:
@@ -334,7 +334,7 @@ Open-sourcing innovative solutions accelerates adoption and improvement while bu
 
 ## Final Thoughts
 
-Winning Most Innovative Use Case at Demo Dundies Season 2 validates our belief that AI's greatest impact comes from solving real business problems thoughtfully. The AI Audit Agent represents more than a technical achievement—it's a demonstration of how intelligent automation can elevate entire professional practices.
+Winning Most Innovative Use Case at Demo Dundies Season 2 validates our belief that AI's greatest impact comes from solving real business problems thoughtfully. The AI Audit Agent represents more than a technical achievement it's a demonstration of how intelligent automation can elevate entire professional practices.
 
 As we prepare for our trip to Italy (still can't believe we won!), we're grateful for the Storylane community's recognition and excited to continue building solutions that make everyone's work more effective and impactful.
 

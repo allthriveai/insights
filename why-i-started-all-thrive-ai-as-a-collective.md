@@ -3,7 +3,7 @@ title: "Why I Started All Thrive AI as a Collective: Building the Future Togethe
 author: "Allie Jones"
 date: "2025-01-23"
 categories: ["AI", "Collective Impact", "Community", "Purpose"]
-featured_image: "/images/insights/why-allthrive.png"
+featured_image: "/images/insights/insights-fallback.png"
 youtube_video: ""
 excerpt: "The story behind All Thrive AI's collective approach - why we believe the future of AI should be built by communities, not corporations, and how collaboration amplifies our impact on the world."
 featured_on_homepage: true
@@ -36,7 +36,7 @@ Our collective model means that everyone who contributes meaningfully to All Thr
 
 Startups fail at an alarming rate, often because they're built on the fragile foundation of individual vision and limited resources. Collectives are different. When one person gets overwhelmed, others step in. When one approach doesn't work, we have multiple perspectives to draw from. When the market shifts, we adapt together.
 
-This resilience isn't just practical—it's deeply human. We're building something that can outlast any individual founder, any single company structure, any particular market condition.
+This resilience isn't just practical it's deeply human. We're building something that can outlast any individual founder, any single company structure, any particular market condition.
 
 ## The Friends Who Light the Path
 
@@ -47,11 +47,11 @@ I've always been inspired by the incredible people in my life, but being part of
 - **Developing accessibility-first AI interfaces** that include rather than exclude
 - **Designing AI systems** that preserve human agency and dignity
 
-These aren't just my colleagues—they're my teachers, my collaborators, my sources of hope when the challenges feel overwhelming.
+These aren't just my colleagues they're my teachers, my collaborators, my sources of hope when the challenges feel overwhelming.
 
 ## What We're Building Together
 
-All Thrive AI isn't just about the tools we create—it's about the ecosystem we're nurturing:
+All Thrive AI isn't just about the tools we create it's about the ecosystem we're nurturing:
 
 ### Open-Source Innovation
 Every breakthrough we make gets shared with the broader community. Our success isn't measured by intellectual property hoarded, but by solutions distributed and problems solved collectively.
@@ -73,7 +73,7 @@ But here's what I've learned: **these challenges are also our greatest strengths
 
 ## A Vision Bigger Than Any One Company
 
-When I look at the current AI landscape, I see incredible technical achievements built largely in isolation—brilliant minds working in corporate silos, optimizing for metrics that don't always align with human flourishing.
+When I look at the current AI landscape, I see incredible technical achievements built largely in isolation brilliant minds working in corporate silos, optimizing for metrics that don't always align with human flourishing.
 
 Our collective model offers a different path: **What if the most transformative AI tools were built by communities, for communities?**
 

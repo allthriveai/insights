@@ -7,9 +7,8 @@ featured_image: "/images/insights/when-it-all-goes-wrong-2018.png"
 youtube_video: "Kpfr0mCPwxM"
 excerpt: "Sometimes things go bad, real bad. Learn from real-life challenges and how to be proactive so that your project plan stays successful from discovery to fruition and your project team stays happy and motivated."
 featured_on_homepage: false
-priority: 2
+priority: 100
 draft: false
-hiddenFromInsightsIndex: true
 featured_link: ""
 profile_contributors: []
 ---
