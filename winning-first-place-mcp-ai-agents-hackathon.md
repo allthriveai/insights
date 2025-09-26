@@ -206,13 +206,14 @@ PitchScoop won **1st place** and **Best Use Case of Redis** at the MCP - AI Agen
 ### What We Delivered
 
 ✅ **32+ MCP Tools** - Complete pitch competition platform exposed as AI-callable functions  
+✅ **Functional Frontend** - TypeScript React interface for managing competitions, viewing leaderboards, and accessing AI analysis  
 ✅ **Real-time scoring** - AI analysis of pitch transcripts with structured feedback  
 ✅ **Live leaderboards** - Redis Sorted Sets providing instant rankings  
 ✅ **Working demo** - End-to-end competition management through AI assistants
 
 ## Key Takeaways
 
-**MCP-first architecture** proved valuable for AI integration - building core business logic as MCP tools first, then wrapping them with REST APIs gave us both AI-native and traditional web interfaces from a single codebase.
+**MCP-first architecture** proved valuable for AI integration - building tools that AI assistants can call directly rather than forcing them through REST APIs.
 
 **Redis Stack** as a unified platform eliminated infrastructure complexity - one system handled caching, search, real-time updates, and leaderboards instead of requiring separate databases and services.
 
