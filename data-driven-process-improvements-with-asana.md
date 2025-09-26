@@ -3,7 +3,7 @@ title: "Transforming Project Management Data into Business Intelligence"
 author: "Allie Jones"
 date: "2024-05-2"
 categories: ["Asana", "API", "Domo", "Salesforce"]
-featured_image: "/insights/images/asana-reporting.png"
+featured_image: "images/asana-reporting.png"
 youtube_video: ""
 excerpt: "How I leveraged Asana's API integration with Domo and Salesforce to consolidate reporting from Asana forms and projects, correlating tasks with sales data for comprehensive process insights."
 featured_on_homepage: false
@@ -21,7 +21,7 @@ Managing complex product development requires more than intuition - it needs dat
 
 **The Power of Unified Reporting**
 
-![Asana reporting dashboard](/insights/images/asana-reporting.png)
+![Asana reporting dashboard](images/asana-reporting.png)
 
 This dashboard represents the end goal: unified visibility across all project data, customer information, and business metrics in one place. What used to require manual data gathering from multiple tools now updates automatically.
 
@@ -52,7 +52,7 @@ I created an API-driven pipeline that consolidates data from Asana forms, projec
 
 Custom Asana forms became our standardized intake process, ensuring consistent data capture from the start of every project.
 
-![Asana task creation form](/insights/images/asana-tasks-form.png)
+![Asana task creation form](images/asana-tasks-form.png)
 
 These forms automatically create properly structured tasks with all the metadata needed for accurate reporting and Salesforce correlation.
 
@@ -60,7 +60,7 @@ These forms automatically create properly structured tasks with all the metadata
 
 **From Chaos to Structure**
 
-![Organized Asana tasks](/insights/images/asana-tasks.png)
+![Organized Asana tasks](images/asana-tasks.png)
 
 The integration transformed how we manage and understand our project delivery. Tasks are now properly categorized, linked to customer accounts, and tracked against business outcomes. Every project element connects to the bigger picture.
 

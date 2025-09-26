@@ -3,7 +3,7 @@ title: "How We Won the MCP Hackathon with PitchScoop"
 author: "Allie Jones"
 date: "2025-09-19"
 categories: ["AI", "Hackathon", "FastAPI", "Redis", "Awards", "MCP"]
-featured_image: "/insights/images/pitchscoop.png"
+featured_image: "images/pitchscoop.png"
 youtube_video: ""
 excerpt: "How our team won 1st place and Best Use Case of Redis at the MCP - AI Agents Hackathon with PitchScoop, an AI-powered pitch competition platform built with FastAPI, Redis, and MCP."
 featured_on_homepage: true
@@ -28,7 +28,7 @@ From the start, we challenged ourselves to run every part of the app through MCP
 
 PitchScoop went on to win **first place** as well as **Best Use Case of Redis**. Here's what we learned about combining MCP with Redis Stack for rapid prototyping. There were over 200 people and 70 project submissions.
 ---
-![mcp-hackathon-first-place](/insights/images/pitchscoop.png)
+![mcp-hackathon-first-place](images/pitchscoop.png)
 ```
 
 ```highlight
@@ -179,7 +179,7 @@ PitchScoop needed to handle real-time audio transcription, AI analysis, leaderbo
 
 Redis Stack 7.2 became our secret weapon, consolidating all these capabilities into a single platform. Instead of orchestrating PostgreSQL + Elasticsearch + Qdrant + Memcached + WebSocket state management, we got everything through Redis.
 ---
-![Redis Logo](/insights/images/redis_logo.png)
+![Redis Logo](images/redis_logo.png)
 ```
 
 ## How we used Redis for everything
@@ -244,7 +244,7 @@ This single data structure eliminated the need for complex ranking logic and gav
 
 PitchScoop won **1st place** and **Best Use Case of Redis** at the MCP - AI Agents Hackathon. 
 
-![The Win](/insights/images/mcp-hackathon.png)
+![The Win](images/mcp-hackathon.png)
 
 
 ### What We Delivered

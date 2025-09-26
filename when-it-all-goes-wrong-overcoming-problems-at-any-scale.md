@@ -3,7 +3,7 @@ title: "When It All Goes Wrong: Overcoming Problems at Any Scale"
 author: "Allie Jones"
 date: "2018-04-15"
 categories: ["Public Speaking", "Drupal", "project management"]
-featured_image: "/insights/images/when-it-all-goes-wrong-2018.png"
+featured_image: "images/when-it-all-goes-wrong-2018.png"
 youtube_video: "Kpfr0mCPwxM"
 excerpt: "Sometimes things go bad, real bad. Learn from real-life challenges and how to be proactive so that your project plan stays successful from discovery to fruition and your project team stays happy and motivated."
 featured_on_homepage: false
