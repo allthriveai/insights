@@ -129,9 +129,15 @@ This architecture meant we got both AI integration AND traditional web APIs with
 
 ## Redis Stack as Our Single Data Platform
 
-![Redis Logo](/images/insights/redis_logo.png)
 
-We needed to minimize infrastructure complexity for rapid development. Redis Stack 7.2 let us handle multiple data needs with one platform:
+```sidebyside
+PitchScoop needed to handle real-time audio transcription, AI analysis, leaderboard rankings, and session management - typically requiring separate databases, caching layers, and search engines. 
+
+Redis Stack 7.2 became our secret weapon, consolidating all these capabilities into a single, blazingly fast platform. Instead of orchestrating PostgreSQL + Elasticsearch + Memcached + WebSocket state management, we got everything through Redis.
+---
+![Redis Logo](/images/insights/redis_logo.png)
+```
+
 
 ```mermaid
 graph TB
