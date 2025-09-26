@@ -3,7 +3,7 @@ title: "Creating, Breaking and Fixing a Drupal Module"
 author: "Allie Jones"
 date: "2016-04-15"
 categories: ["Drupal", "Public Speaking"]
-featured_image: "images/creating-breaking-fixing-drupal.png"
+featured_image: "/images/insights/creating-breaking-fixing-drupal.png"
 youtube_video: "1LlZd-0noiI"
 excerpt: "Debugging is more than fixing broken code. Learn how to logically think through steps and use the right tools to solve problems in Drupal 8's object-oriented architecture."
 featured_on_homepage: false

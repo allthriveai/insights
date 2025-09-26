@@ -37,7 +37,7 @@ title: "Article Title"
 author: "Author Name"
 date: "YYYY-MM-DD"
 categories: ["Category 1", "Category 2"]
-featured_image: "images/image.png"
+featured_image: "/insights/images/image.png"
 excerpt: "Brief description for SEO"
 featured_on_homepage: true/false
 priority: 1-100 (lower = higher priority)

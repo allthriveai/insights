@@ -3,7 +3,7 @@ title: "Not Sure Where to Start With AI?<br>Meet All Thrive's Free AI Coach GPT"
 author: "Allie Jones"
 date: "2025-08-01"
 categories: ["AI", "Free Resources", "Personal Development"]
-featured_image: "images/all-thrive-chatgpt.png"
+featured_image: "/images/insights/all-thrive-chatgpt.png"
 youtube_video: ""
 excerpt: "Get instant access to our free custom ChatGPT that helps you discover exactly how AI can transform your life and work. No signup required."
 featured_on_homepage: true

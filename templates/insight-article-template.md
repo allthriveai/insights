@@ -10,7 +10,7 @@ title: "Your Article Title Here"
 author: "Author Name"
 date: "YYYY-MM-DD"
 categories: ["Category 1", "Category 2", "Category 3"]
-featured_image: "images/your-image.png"
+featured_image: "/insights/images/your-image.png"
 youtube_video: ""
 excerpt: "Brief 1-2 sentence summary that will appear in previews and social shares."
 featured_on_homepage: false

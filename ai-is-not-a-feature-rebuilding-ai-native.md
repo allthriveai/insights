@@ -1,15 +1,19 @@
 ---
 title: "AI Is Not a Feature: Why I'm Rebuilding AI-Native Instead of Bolting AI onto My App"
-author: "Gina Levy"
-date: "2025-04-23"
-categories: ["AI", "Product Development", "Startup Strategy"]
-featured_image: "images/kinlia-ai-native-article.png"
+author: Gina Levy
+date: 2025-04-23
+categories:
+  - AI
+  - Product Development
+  - Startup Strategy
+featured_image: /images/insights/kinlia-ai-native-article.png
 youtube_video: ""
-excerpt: "Why treating AI as just another feature is a fundamental mistake, and how rebuilding from an AI-first perspective creates truly transformative user experiences."
+excerpt: Why treating AI as just another feature is a fundamental mistake, and how rebuilding from an AI-first perspective creates truly transformative user experiences.
 featured_on_homepage: true
 priority: 5
 draft: false
-featured_link: "https://www.kinlia.com/"
+featured_link: https://www.kinlia.com/
+profile_contributors:
 ---
 
 # AI Is Not a Feature: Why I'm Rebuilding AI-Native Instead of Bolting AI onto My App

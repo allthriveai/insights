@@ -1,15 +1,21 @@
 ---
-title: "How Doing a Comedy Pitch of Your Startup Can Spark New Ways of Thinking"
-author: "Gina Levy"
-date: "2025-01-23"
-categories: ["Startup Strategy", "Communication", "Innovation", "Pitching", "Awards"]
-featured_image: "images/gina-comedy-pitch.png"
+title: How Doing a Comedy Pitch of Your Startup Can Spark New Ways of Thinking
+author: Gina Levy
+date: 2025-01-23
+categories:
+  - Startup Strategy
+  - Communication
+  - Innovation
+  - Pitching
+  - Awards
+featured_image: /images/insights/gina-comedy-pitch.png
 youtube_video: ""
-excerpt: "What happens when you pitch your startup as a comedy routine? Lessons from winning The Battery's Tech Roast Comedy Night and why every pitch does better with fun."
+excerpt: What happens when you pitch your startup as a comedy routine? Lessons from winning The Battery's Tech Roast Comedy Night and why every pitch does better with fun.
 featured_on_homepage: true
 priority: 6
 draft: false
 featured_link: ""
+profile_contributors:
 ---
 
 # How Doing a Comedy Pitch of Your Startup Can Spark New Ways of Thinking
@@ -178,4 +184,4 @@ So next time you're preparing a pitch, ask yourself: where's the fun in this? Yo
 
 ---
 
-*Want to see more examples of founders using unconventional approaches to build better startups? [Subscribe to our insights](/newsletter) for weekly stories from the entrepreneurial frontier.*
+*Want to see more examples of founders using unconventional approaches to build better startups? [Subscribe to our insights](/newsletter) for weekly stories from the entrepreneurial frontier.*i

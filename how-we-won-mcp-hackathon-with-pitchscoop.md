@@ -3,7 +3,7 @@ title: "How We Won the MCP Hackathon with PitchScoop"
 author: "Allie Jones"
 date: "2025-09-19"
 categories: ["AI", "Hackathon", "FastAPI", "Redis", "Awards", "MCP"]
-featured_image: "images/pitchscoop.png"
+featured_image: "/insights/images/pitchscoop.png"
 youtube_video: ""
 excerpt: "How our team won 1st place and Best Use Case of Redis at the MCP - AI Agents Hackathon with PitchScoop, an AI-powered pitch competition platform built with FastAPI, Redis, and MCP."
 featured_on_homepage: true
