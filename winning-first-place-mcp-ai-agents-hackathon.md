@@ -44,7 +44,7 @@ This is powerful because it makes interoperability simple. You choose which func
 
 ## Breaking Down PitchScoop
 
-We decided to try an **MCP-first approach**: build every feature as an AI-callable tool first, then add REST endpoints as wrappers. We built this with **Python FAST API** following a strict **Domain Driven Design** principles. and a Typscript seperate repo frontend. 
+We decided to try an **MCP-first approach**: build every feature as an AI-callable tool first, then add REST endpoints as wrappers. We built this with **Python FAST API** following a strict **Domain Driven Design** principles and a Typscript seperate frontend repo. 
 
 
 ```mermaid
@@ -75,35 +75,78 @@ graph TD
 
 **Result**: We ended up with 32+ MCP tools organized into 5 domains. Each domain has its own router, models, and business logic. This approach let us quickly test AI-assisted event management while still providing traditional web interfaces.
 
-### Mid-Morning: Organizing with Domain-Driven Design
+### Mid-Morning: When MCP's Power Became Clear
 
-To keep things manageable in a time crunch, we organized the codebase by domain. Each domain became self-contained:
+Here's the moment MCP proved its worth. Around 11 AM, a judge approached us:
+
+**Judge**: "Hey, can you score the FinTech team that just presented? I want to see how their tool usage compares to the other teams."
+
+**Traditional approach would be:**
+1. Judge logs into web dashboard
+2. Finds team in dropdown menu
+3. Fills out scoring form manually
+4. Switches to another tab to compare teams
+5. Manually calculates relative rankings
+6. 15+ minutes of clicking around
+
+**Our MCP approach:**
+
+Judge opens Claude (which they already have open) and says:
+
+*"Score session FT-001 using PitchScoop criteria"*
+
+Claude instantly calls our `analysis.score_pitch` MCP tool:
 
 ```python
-# Clean domain structure
-api/domains/
-├── events/
-│   ├── router.py          # REST endpoints (/api/events/*)
-│   ├── mcp/               # MCP tools (events.*)
-│   └── models.py          # Pydantic models
-├── recordings/
-│   ├── router.py          # REST endpoints (/api/sessions/*)
-│   ├── mcp/               # MCP tools (pitches.*)
-│   └── value_objects/     # Domain objects
-├── scoring/
-│   ├── router.py          # REST endpoints (/api/analysis/*)
-│   └── mcp/               # MCP tools (analysis.*)
-├── leaderboards/
-│   ├── router.py          # REST endpoints (/api/leaderboard/*)
-│   └── mcp/               # MCP tools (leaderboard.*)
-├── users/
-│   ├── router.py          # REST endpoints (/api/users/*, /api/auth/*)
-│   └── mcp/               # MCP tools (users.*)
-└── shared/
-    └── models.py          # Cross-domain models
+# This happens automatically when Claude calls our MCP tool
+@mcp_tool("analysis.score_pitch")
+async def score_complete_pitch(session_id: str, event_id: str, judge_id: str = None):
+    # Get the pitch transcript from Redis
+    session = await redis_client.get(f"event:{event_id}:session:{session_id}")
+    transcript = session.final_transcript.total_text
+    
+    # AI analysis with structured output
+    analysis = await ai_analyze_pitch(
+        transcript=transcript,
+        criteria=hackathon_scoring_criteria,
+        sponsor_tools=["OpenAI", "Qdrant", "MinIO", "Bright Data"]
+    )
+    
+    return {
+        "session_id": session_id,
+        "team_name": "MoneyFlow",
+        "scores": {
+            "idea": {"score": 22.5, "max_score": 25, "reasoning": "Novel micro-lending approach"},
+            "technical_implementation": {"score": 20.0, "max_score": 25, "reasoning": "Solid ML model, standard architecture"},
+            "tool_use": {"score": 23.0, "max_score": 25, "reasoning": "Excellent integration of OpenAI + Stripe + Plaid"},
+            "presentation_delivery": {"score": 21.0, "max_score": 25, "reasoning": "Clear demo, good time management"}
+        },
+        "total_score": 86.5,
+        "ranking_tier": "very_good"
+    }
 ```
 
-**What we learned**: This structure helped us move faster during the hackathon. Each person could focus on a specific domain without stepping on each other's toes, and new features stayed contained to their relevant domain.
+Claude responds in **2.8 seconds**:
+
+*"MoneyFlow scored 86.5/100 - Strong finalist candidate with excellent tool integration. Here's the breakdown:*
+- *Innovation: 22.5/25 - Novel micro-lending approach*
+- *Technical: 20/25 - Solid ML model, standard architecture* 
+- *Tool Use: 23/25 - Excellent OpenAI + Stripe + Plaid integration*
+- *Presentation: 21/25 - Clear demo, good time management"*
+
+Judge: *"How does this compare to other FinTech teams?"*
+
+Claude calls `analysis.compare_pitches`:
+
+*"MoneyFlow ranks #2 of 4 FinTech teams:*
+1. *CryptoPay (89.5/100) - Superior technical innovation*
+2. *MoneyFlow (86.5/100) - Excellent tool integration*  
+3. *BudgetAI (78/100) - Good UX, limited scope*
+4. *LendFast (72/100) - Basic implementation"*
+
+**The magic**: This entire interaction took 30 seconds. No context switching, no form filling, no manual calculations. The judge stayed in their natural workflow (conversing with AI) while getting enterprise-grade scoring analysis.
+
+**Why this mattered for winning**: The judges were amazed that they could have natural conversations about scoring instead of fighting with web interfaces. This user experience difference - not just the scoring algorithm - is what made our approach feel revolutionary.
 
 ## Afternoon: Redis Stack as Our Single Data Platform
 
@@ -526,425 +569,3 @@ Built at the [MCP - AI Agents Hackathon](https://juniper-giant-a3f.notion.site/M
 Questions about the implementation?  
 Feel free to explore the code or reach out: [@yourhandle](https://twitter.com/yourhandle)
 
-
------- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Why MCP + Redis Stack is the Perfect Combo for AI Applications
-
-*Building PitchScoop: A real-world case study in MCP-first architecture with Redis vector search*
-
-## The Challenge: Making AI Assistants Truly Useful
-
-AI assistants are powerful, but they often feel disconnected from real applications. They can chat, generate text, and answer questions—but can they actually *do* things in your systems? That's where **Model Context Protocol (MCP)** changes everything.
-
-At PitchScoop, we built an AI-powered pitch competition platform that demonstrates how MCP + Redis Stack creates a seamless bridge between AI assistants and production applications.
-
-## MCP-First Architecture: Every Feature is a Tool
-
-Instead of building a traditional web API and hoping AI assistants could somehow use it, we flipped the approach: **every business function is exposed as a standardized MCP tool**.
-
-```mermaid
-graph TD
-    A[AI Assistant] --> B[MCP Protocol Layer]
-    B --> C[Domain Router]
-    C --> D[Events Domain]
-    C --> E[Recordings Domain] 
-    C --> F[Scoring Domain]
-    C --> G[Leaderboards Domain]
-    C --> H[Users Domain]
-    
-    D --> D1[Create Events]
-    D --> D2[Manage Participants]
-    E --> E1[Audio Recording]
-    E --> E2[Speech-to-Text]
-    F --> F1[AI Analysis]
-    F --> F2[Multi-dimensional Scoring]
-```
-
-This means Claude, GPT, or any MCP-compatible AI can directly:
-- Create and manage pitch competitions
-- Start audio recordings and process speech-to-text
-- Run AI-powered scoring analysis
-- Generate live leaderboards
-- Provide personalized feedback
-
-All through **32 standardized MCP tools** that follow OpenAPI specifications.
-
-## Redis Stack: The Multi-Purpose AI Data Platform
-
-Here's where it gets interesting. Most AI applications struggle with data architecture—you need caching, session management, vector search, and real-time capabilities. Instead of juggling multiple databases, we use **Redis Stack 7.2** for everything:
-
-```mermaid
-graph TB
-    A[FastAPI Application] --> B[Redis Stack 7.2]
-    B --> C[Session Storage]
-    B --> D[Real-time Caching]
-    B --> E[Vector Search Engine]
-    B --> F[Document Indexing]
-    
-    C --> C1[User Sessions]
-    C --> C2[Recording States]
-    C --> C3[Competition Data]
-    
-    D --> D1[Transcript Segments]
-    D --> D2[Audio Metadata]
-    D --> D3[Scoring Cache]
-    
-    E --> E1[Semantic Search]
-    E --> E2[RAG Queries]
-    E --> E3[Content Similarity]
-    
-    F --> F1[Event Documents]
-    F --> F2[Pitch Analysis]
-    F --> F3[Market Research]
-```
-
-| Feature | Implementation | Use Case |
-|---------|----------------|----------|
-| **Session Management** | Redis Hash + TTL | User authentication, recording sessions |
-| **Real-time Caching** | Redis Strings/Lists | Transcript segments, leaderboard data |
-| **Vector Search** | RediSearch + VSS | Semantic document search, content similarity |
-| **Document Indexing** | RedisVL + LlamaIndex | RAG-powered pitch analysis and feedback |
-| **Pub/Sub Messaging** | Redis Streams | Real-time updates, WebSocket broadcasting |
-| **Leaderboard Rankings** | Redis Sorted Sets | Live competition rankings with scores |
-
-## Real-World Code: Multi-Purpose Redis Operations
-
-Here's how PitchScoop uses Redis Stack's diverse capabilities. Each method demonstrates a different Redis data structure solving a specific business problem:
-
-```python
-import json
-import redis.asyncio as redis
-from datetime import datetime, timedelta
-
-class PitchScoopRedisService:
-    def __init__(self):
-        self.redis_client = redis.from_url(
-            "redis://localhost:6379/0", decode_responses=True
-        )
-    
-    async def create_event(self, event_id: str, event_data: dict):
-        """Store event data with expiration using Redis Strings"""
-        await self.redis_client.setex(
-            f"event:{event_id}",
-            86400 * 30,  # 30 days TTL
-            json.dumps(event_data)
-        )
-        
-        # Initialize related data structures
-        await self.redis_client.setex(
-            f"event:{event_id}:participants", 86400 * 30, json.dumps([])
-        )
-    
-    async def add_participant(self, event_id: str, participant_data: dict):
-        """Add participant using Redis Lists for ordered data"""
-        # Add to participant list
-        await self.redis_client.lpush(
-            f"event:{event_id}:participants", 
-            json.dumps(participant_data)
-        )
-        
-        # Update participant count using Redis Hash
-        await self.redis_client.hincrby(
-            f"event:{event_id}:stats", "participant_count", 1
-        )
-    
-    async def update_live_leaderboard(self, event_id: str, 
-                                      team_name: str, score: float):
-        """Real-time leaderboard using Redis Sorted Sets"""
-        # Update team score (automatically sorts by score)
-        await self.redis_client.zadd(
-            f"event:{event_id}:leaderboard",
-            {team_name: score}
-        )
-        
-        # Set expiration for cleanup
-        await self.redis_client.expire(
-            f"event:{event_id}:leaderboard", 86400 * 7
-        )
-    
-    async def get_top_teams(self, event_id: str, limit: int = 10):
-        """Get top teams from leaderboard (descending order)"""
-        return await self.redis_client.zrevrange(
-            f"event:{event_id}:leaderboard",
-            0, limit - 1,
-            withscores=True
-        )
-    
-    async def cache_session_data(self, session_id: str, 
-                                transcript_segments: list):
-        """Cache real-time transcript data using Redis Hashes"""
-        session_key = f"session:{session_id}"
-        
-        # Store metadata in hash
-        await self.redis_client.hmset(session_key, {
-            "status": "recording",
-            "start_time": datetime.utcnow().isoformat(),
-            "segment_count": len(transcript_segments),
-            "last_updated": datetime.utcnow().isoformat()
-        })
-        
-        # Store segments as separate keys for efficient retrieval
-        for i, segment in enumerate(transcript_segments):
-            await self.redis_client.setex(
-                f"session:{session_id}:segment:{i}",
-                3600,  # 1 hour TTL
-                json.dumps(segment)
-            )
-    
-    async def search_events_by_pattern(self, pattern: str = "event:*"):
-        """Pattern-based key scanning for event discovery"""
-        events = []
-        async for key in self.redis_client.scan_iter(match=pattern):
-            if not (":participants" in key or ":sessions" in key):
-                event_data = await self.redis_client.get(key)
-                if event_data:
-                    events.append(json.loads(event_data))
-        return events
-    
-    async def publish_live_update(self, event_id: str, update_data: dict):
-        """Real-time updates using Redis Pub/Sub"""
-        await self.redis_client.publish(
-            f"event:{event_id}:updates",
-            json.dumps({
-                "timestamp": datetime.utcnow().isoformat(),
-                "type": "leaderboard_update",
-                "data": update_data
-            })
-        )
-```
-
-### Breaking Down the Redis Patterns
-
-**1. Event Storage with TTL (Redis Strings)**
-```python
-await self.redis_client.setex(f"event:{event_id}", 86400 * 30, json.dumps(event_data))
-```
-Redis Strings with automatic expiration solve the "document storage with lifecycle" problem. Events automatically clean up after 30 days, preventing memory bloat without manual cleanup jobs.
-
-**2. Ordered Participants (Redis Lists)**  
-```python
-await self.redis_client.lpush(f"event:{event_id}:participants", json.dumps(participant_data))
-```
-Redis Lists maintain insertion order and allow efficient head/tail operations. Perfect for "first registered" participant queues or chronological activity feeds.
-
-**3. Live Leaderboards (Redis Sorted Sets)**
-```python
-await self.redis_client.zadd(f"event:{event_id}:leaderboard", {team_name: score})
-```
-This is Redis magic—Sorted Sets automatically maintain ranking order. Update any team's score and the leaderboard instantly reflects the new rankings. No manual sorting needed.
-
-**4. Session Metadata (Redis Hashes)**
-```python
-await self.redis_client.hmset(session_key, {
-    "status": "recording", 
-    "start_time": datetime.utcnow().isoformat()
-})
-```
-Redis Hashes act like database rows—perfect for structured data that changes frequently. Individual fields can be updated without rewriting the entire object.
-
-**5. Real-Time Updates (Redis Pub/Sub)**
-```python
-await self.redis_client.publish(f"event:{event_id}:updates", json.dumps(update_data))
-```
-Pub/Sub enables WebSocket-style real-time features without additional infrastructure. When a leaderboard changes, all connected clients instantly receive updates.
-
-**6. Pattern-Based Discovery (Key Scanning)**
-```python
-async for key in self.redis_client.scan_iter(match="event:*"):
-```
-Redis key patterns enable flexible data discovery. Find all events, all sessions for an event, or all data for cleanup—without maintaining separate indexes.
-
-### The Power of Single-Platform Architecture
-
-Notice what this code **doesn't** need:
-- ❌ No separate cache layer (Redis handles hot data)
-- ❌ No message queue system (Redis Pub/Sub)
-- ❌ No ranking algorithms (Sorted Sets handle it)
-- ❌ No manual cleanup jobs (TTL expires data automatically)
-- ❌ No complex indexing strategy (Key patterns work beautifully)
-
-This is why Redis Stack + MCP works so well for AI applications. You get enterprise-grade performance and features with dramatically reduced complexity.
-
-## AI in Action: A Real Conversation
-
-Here's how an AI assistant actually interacts with PitchScoop using MCP tools. This is a real conversation flow:
-
-**Human**: *"Help me set up a hackathon competition for 20 teams, then show me the current standings after some pitches come in."*
-
-**Claude**: *"I'll help you set up a hackathon and monitor the competition. Let me start by creating the event."*
-
-```python
-# Claude calls MCP tool directly
-result = await mcp_client.call_tool("events.create_event", {
-    "event_type": "hackathon",
-    "event_name": "AI Innovation Challenge 2024", 
-    "description": "Build AI applications using MCP tools",
-    "max_participants": 20,
-    "duration_minutes": 5
-})
-
-# Returns: {
-#   "event_id": "mcp-hackathon",
-#   "status": "active",
-#   "max_participants": 20,
-#   "instructions": {
-#     "next_step": "Add participants with events.join_event"
-#   }
-# }
-```
-
-**Claude**: *"Perfect! I've created 'AI Innovation Challenge 2024' with event ID `mcp-hackathon`. The competition is now active and ready for participants. Let me check if any teams have joined and pitched yet."*
-
-```python
-# Check current leaderboard
-leaderboard = await mcp_client.call_tool("leaderboard.get_rankings", {
-    "event_id": "mcp-hackathon",
-    "limit": 10,
-    "include_details": True
-})
-
-# Returns live rankings with scores
-# {
-#   "leaderboard": [
-#     {
-#       "rank": 1,
-#       "team_name": "Vector Innovators", 
-#       "total_score": 87.5,
-#       "pitch_title": "Smart Contract Analyzer",
-#       "category_scores": {
-#         "idea_score": 22.0,
-#         "technical_score": 20.5,
-#         "tool_use_score": 23.0,
-#         "presentation_score": 22.0
-#       }
-#     },
-#     {
-#       "rank": 2, 
-#       "team_name": "AI Architects",
-#       "total_score": 84.2,
-#       "pitch_title": "Automated Code Review Bot"
-#     }
-#   ],
-#   "total_teams": 8
-# }
-```
-
-**Claude**: *"Great progress! Here are the current standings:*
-
-*🏆 **Current Leaderboard** (8 teams have pitched so far):*
-
-*1. **Vector Innovators** - 87.5 points*  
-   *"Smart Contract Analyzer" - Strong across all categories*
-
-*2. **AI Architects** - 84.2 points*  
-   *"Automated Code Review Bot" - Solid technical implementation*
-
-*The competition is heating up! Would you like me to analyze the pitch data or set up real-time notifications for new submissions?"*
-
-```python
-# Human asks for detailed analysis of top pitch
-# Claude can instantly access the full scoring breakdown
-analysis = await mcp_client.call_tool("analysis.get_scoring_results", {
-    "session_id": "session_vector_innovators_001"
-})
-
-# Returns comprehensive AI analysis:
-# {
-#   "detailed_feedback": {
-#     "strengths": [
-#       "Innovative use of vector databases for smart contract analysis",
-#       "Clear demonstration of MCP tool integration",
-#       "Strong technical architecture with Redis vector search"
-#     ],
-#     "improvements": [
-#       "Could expand on market size and competitive advantage", 
-#       "Demo could show more complex contract scenarios"
-#     ],
-#     "judge_recommendation": "Excellent foundation with clear market focus..."
-#   }
-# }
-```
-
-### What Makes This Powerful
-
-**Traditional API Integration:**
-```python
-# Multiple HTTP calls, manual data parsing, no standardization
-response1 = requests.post("/api/events", json=event_data)
-event_id = response1.json()["event_id"] 
-
-response2 = requests.get(f"/api/events/{event_id}/leaderboard")
-leaderboard = response2.json()
-
-# Handle authentication, error codes, pagination, rate limits...
-```
-
-**MCP Integration:**
-```python
-# Direct tool calls, standardized interface, native AI integration
-event = await mcp_client.call_tool("events.create_event", event_params)
-leaderboard = await mcp_client.call_tool("leaderboard.get_rankings", {"event_id": event["event_id"]})
-
-# AI assistant handles this natively - no HTTP complexity
-```
-
-The AI assistant treats PitchScoop operations as **native capabilities**, not external API calls. This is the fundamental shift MCP enables.
-
-## The Results: AI That Actually Works
-
-This architecture delivers measurable benefits:
-
-- **< 50ms vector search latency** for 10k+ documents
-- **32 MCP tools** accessible to any AI assistant
-- **1000+ concurrent queries/second** on standard Redis Stack
-- **Real-time updates** across all competition features
-- **Seamless scaling** with Redis cluster for production
-
-## Why This Matters
-
-Most AI applications are demos. They look impressive but don't integrate with real business processes. MCP + Redis Stack changes that:
-
-1. **MCP makes AI integration native** - not an afterthought
-2. **Redis Stack handles all data needs** - no complex architecture 
-3. **Vector search enables intelligent features** - semantic analysis, RAG, content similarity
-4. **Real-time capabilities** keep AI responses current and relevant
-
-## Try It Yourself
-
-Want to see this in action? The PitchScoop platform is open source and demonstrates production-ready MCP integration:
-
-```bash
-git clone <repository-url>
-cd pitchscoop  
-./setup.sh  # One-command setup
-```
-
-Within 2 minutes, you'll have:
-- 32 MCP tools running locally
-- Redis Stack with vector search
-- Real-time audio processing
-- AI-powered scoring system
-
-**Key URLs:**
-- **API Documentation**: http://localhost:8000/docs  
-- **RedisInsight Dashboard**: http://localhost:8001
-
-The future of AI applications isn't just better models—it's better integration. MCP + Redis Stack shows how to build AI systems that actually work in the real world.
-
----
-
-*PitchScoop is an open-source MCP-first platform for AI-assisted pitch competitions. Built with FastAPI, Redis Stack, and Azure OpenAI, it demonstrates production-ready patterns for MCP integration.* s
