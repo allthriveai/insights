@@ -90,7 +90,7 @@ async def score_complete_pitch(session_id: str, event_id: str, judge_id: str = N
     if not session or not session.get('final_transcript'):
         return {"error": "No transcript available for scoring"}
     
-    # Use Azure OpenAI + LangChain for structured analysis
+    # Use the LLM + LangChain for structured analysis
     analysis = await ai_analyze_pitch(
         transcript=session['final_transcript']['total_text'],
         criteria=hackathon_scoring_criteria
@@ -127,9 +127,11 @@ async def score_pitch_endpoint(request: ScoringRequest):
 
 This architecture meant we got both AI integration AND traditional web APIs with minimal duplicate code.
 
-## Afternoon: Redis Stack as Our Single Data Platform
+## Redis Stack as Our Single Data Platform
 
-With only 7 hours to build and demo, we needed to minimize infrastructure complexity. Redis Stack 7.2 let us handle multiple data needs with one platform:
+![Redis Logo](/images/insights/redis_logo.png)
+
+We needed to minimize infrastructure complexity for rapid development. Redis Stack 7.2 let us handle multiple data needs with one platform:
 
 ```mermaid
 graph TB
