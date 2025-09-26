@@ -1,11 +1,11 @@
 ---
-title: "Winning 1st Place at the MCP - AI Agents Hackathon: Building Pitch Scoop"
+title: "How We Won the MCP Hackathon with PitchScoop"
 author: "Allie Jones"
 date: "2025-09-19"
-categories: ["AI", "Hackathon", "FastAPI", "Redis", "Awards"]
+categories: ["AI", "Hackathon", "FastAPI", "Redis", "Awards", "MCP"]
 featured_image: "/images/insights/pitchscoop.png"
 youtube_video: ""
-excerpt: "How our team won 1st place and Best Use Case of Redis at the MCP - AI Agents Hackathon with Pitch Scoop, an AI-powered pitch competition platform built with FastAPI, Redis, and MCP."
+excerpt: "How our team won 1st place and Best Use Case of Redis at the MCP - AI Agents Hackathon with PitchScoop, an AI-powered pitch competition platform built with FastAPI, Redis, and MCP."
 featured_on_homepage: true
 priority: 4
 draft: false
@@ -14,7 +14,7 @@ profile_contributors: ["Gina Levy", "Sarah Graup"]
 ---
 # Building with MCP + Redis Stack: Lessons from the AI Agents Hackathon
 
-*Technical learnings from PitchScoop: An MCP-first pitch competition*
+*Technical learnings from the MCP - AI Agent Hackathon*
 
 ## The Challenge
 One day at the [MCP - AI Agents Hackathon](https://juniper-giant-a3f.notion.site/MCP-AI-Agents-Hackathon-Sep-19-11c9fb250b4b80c488b7e2d7b6d6816d) in San Francisco (Sep 19). 
@@ -26,7 +26,7 @@ We built **PitchScoop**, the AI scoop on your pitch. It is a pitch competition p
 
 From the start, we challenged ourselves to run every part of the app through MCP. The hackathon ran from 9:30 AM to 4:30 PM, giving us about seven hours of focused development time.
 
-PitchScoop went on to win **first place** as well as **Best Use Case of Redis**. Here’s what we learned about combining MCP with Redis Stack for rapid prototyping.
+PitchScoop went on to win **first place** as well as **Best Use Case of Redis**. Here's what we learned about combining MCP with Redis Stack for rapid prototyping. There were over 200 people and 70 project submissions.
 ---
 ![mcp-hackathon-first-place](/images/insights/pitchscoop.png)
 ```
