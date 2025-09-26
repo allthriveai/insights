@@ -10,7 +10,7 @@ title: "Your Article Title Here"
 author: "Author Name"
 date: "YYYY-MM-DD"
 categories: ["Category 1", "Category 2", "Category 3"]
-featured_image: "/images/insights/your-image.png"
+featured_image: "/insights/images/your-image.png"
 youtube_video: ""
 excerpt: "Brief 1-2 sentence summary that will appear in previews and social shares."
 featured_on_homepage: false
@@ -257,7 +257,7 @@ You can use reference-style links for cleaner text: [Example Site][example] or [
 ## Images and Media
 
 ### Basic Image
-![Alt text describing the image](/images/insights/example-image.png)
+![Alt text describing the image](/insights/images/example-image.png)
 
 <!-- 
 IMAGE HELP:
@@ -274,10 +274,10 @@ Image paths should be relative to your site root
 -->
 
 ### Image with Title
-![Detailed alt text for accessibility](/images/insights/example-with-title.png "This text appears on hover")
+![Detailed alt text for accessibility](/insights/images/example-with-title.png "This text appears on hover")
 
 ### Linked Images
-[![Alt text for linked image](/images/insights/clickable-image.png)](https://destination-url.com)
+[![Alt text for linked image](/insights/images/clickable-image.png)](https://destination-url.com)
 
 ## Advanced Elements
 

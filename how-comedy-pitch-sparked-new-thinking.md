@@ -3,7 +3,7 @@ title: "How Doing a Comedy Pitch of Your Startup Can Spark New Ways of Thinking"
 author: "Gina Levy"
 date: "2025-01-23"
 categories: ["Startup Strategy", "Communication", "Innovation", "Pitching", "Awards"]
-featured_image: "/images/insights/gina-comedy-pitch.png"
+featured_image: "/insights/images/gina-comedy-pitch.png"
 youtube_video: ""
 excerpt: "What happens when you pitch your startup as a comedy routine? Lessons from winning The Battery's Tech Roast Comedy Night and why every pitch does better with fun."
 featured_on_homepage: true

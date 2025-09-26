@@ -3,7 +3,7 @@ title: "Low Code vs. Headless Architecture: Battle For the Frontend"
 author: "Allie Jones"
 date: "2022-04-15"
 categories: ["Headless Architecture", "Low Code"]
-featured_image: "/images/insights/headless-architecture.png"
+featured_image: "/insights/images/headless-architecture.png"
 youtube_video: ""
 excerpt: "Exploring the strategic decision between low code site builders and headless architecture: when to choose speed versus flexibility in modern web development."
 featured_on_homepage: false
@@ -19,7 +19,7 @@ profile_contributors: []
 
 The modern web development landscape presents a fundamental choice: embrace the speed of low code site builders or invest in the flexibility of headless architecture. Each approach serves different business needs, but understanding when to choose which can make or break your digital strategy.
 
-![Deciding to Go Headless](/images/insights/deciding-to-go-headless.png)
+![Deciding to Go Headless](/insights/images/deciding-to-go-headless.png)
 
 ## The Low Code Appeal
 
@@ -35,7 +35,7 @@ Low code site builders promise rapid deployment and user-friendly interfaces. Ma
 
 Headless architecture separates content management from presentation, enabling unprecedented flexibility. Developers can craft custom experiences, integrate multiple touchpoints seamlessly, and scale without constraints. While requiring more upfront investment, headless systems adapt to evolving business requirements.
 
-![Headless Architecture](/images/insights/headless-architecture.png)
+![Headless Architecture](/insights/images/headless-architecture.png)
 
 **Perfect when:**
 - Custom user experiences are critical

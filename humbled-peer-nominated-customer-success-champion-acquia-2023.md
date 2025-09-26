@@ -3,7 +3,7 @@ title: "Humbled to be peer nominated Customer Success Champion of Acquia 2023"
 author: "Allie Jones"
 date: "2023-12-15"
 categories: ["Awards", "Leadership"]
-featured_image: "/images/insights/insights-fallback.png"
+featured_image: "/insights/images/insights-fallback.png"
 youtube_video: ""
 excerpt: "Reflecting on being peer-nominated as Acquia's Customer Success Champion for 2023. What makes this recognition special and the incredible feedback from colleagues who see the daily dedication to customer success."
 featured_on_homepage: false

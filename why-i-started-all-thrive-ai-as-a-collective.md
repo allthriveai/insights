@@ -3,7 +3,7 @@ title: "Why I Started All Thrive AI as a Collective: Building the Future Togethe
 author: "Allie Jones"
 date: "2025-01-23"
 categories: ["AI", "Collective Impact", "Community", "Purpose"]
-featured_image: "/images/insights/insights-fallback.png"
+featured_image: "/insights/images/insights-fallback.png"
 youtube_video: ""
 excerpt: "The story behind All Thrive AI's collective approach - why we believe the future of AI should be built by communities, not corporations, and how collaboration amplifies our impact on the world."
 featured_on_homepage: true
