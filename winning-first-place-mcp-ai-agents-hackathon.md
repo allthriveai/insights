@@ -22,7 +22,7 @@ One day at the [MCP - AI Agents Hackathon](https://juniper-giant-a3f.notion.site
 
 ```sidebyside
 
-We built **PitchScoop**, a pitch competition platform powered by MCP where AI agents manage events, score presentations, and update leaderboards. 
+We built **PitchScoop**, the AI scoop on your pitch. It is a pitch competition platform powered by MCP where AI agents manage events, score presentations, and update leaderboards. 
 
 From the start, we challenged ourselves to run every part of the app through MCP. The hackathon ran from 9:30 AM to 4:30 PM, giving us about seven hours of focused development time.
 
@@ -77,7 +77,7 @@ graph TD
 
 ### Why MCP Made Technical Sense
 
-The core decision was to build every feature as an MCP tool first, then add REST endpoints as wrappers. Here's what this actually looked like:
+With this being an MCP hackathon we made the core decision to build every feature as an MCP tool first. We then added REST endpoints as wrappers for our Frontend. Here's what this actually looked like:
 
 ```python
 # Our actual MCP tool for pitch scoring
@@ -112,20 +112,64 @@ async def score_complete_pitch(session_id: str, event_id: str, judge_id: str = N
 3. **Automatic documentation** - MCP tools include their own schema definitions
 4. **Universal compatibility** - any MCP-compatible AI can use our tools
 
-The REST endpoints became simple wrappers:
+The REST endpoints became structured wrappers with Pydantic models:
 
 ```python
-# REST endpoint just calls the MCP tool
-@app.post("/api/analysis/score")
+# Pydantic models for type safety and validation
+class ScoringRequest(BaseModel):
+    """Request for pitch scoring"""
+    session_id: str = Field(..., description="Session ID to score")
+    event_id: str = Field(..., description="Event ID for context")
+    scoring_criteria: Optional[Dict[str, float]] = Field(None, description="Custom scoring weights")
+
+class ScoringResponse(BaseModel):
+    """Scoring result response"""
+    session_id: str
+    event_id: str
+    total_score: float
+    category_scores: Dict[str, float]
+    ai_feedback: str
+    recommendation: str
+    scored_at: datetime
+
+# REST endpoint transforms MCP response to structured format
+@app.post("/api/analysis/score", response_model=ScoringResponse)
 async def score_pitch_endpoint(request: ScoringRequest):
-    return await score_complete_pitch(
-        request.session_id, 
-        request.event_id, 
-        request.judge_id
+    """Score a pitch session using MCP tool with structured REST response"""
+    # Call MCP tool directly
+    mcp_result = await score_complete_pitch(
+        session_id=request.session_id,
+        event_id=request.event_id,
+        judge_id=None
+    )
+    
+    # Transform MCP response to REST API structure
+    scores = mcp_result["scores"]
+    return ScoringResponse(
+        session_id=mcp_result["session_id"],
+        event_id=mcp_result["event_id"],
+        total_score=scores["overall"]["total_score"],
+        category_scores={
+            "idea": scores["idea"]["score"],
+            "technical": scores["technical_implementation"]["score"],
+            "tools": scores["tool_use"]["score"],
+            "presentation": scores["presentation_delivery"]["score"]
+        },
+        ai_feedback=scores["overall"]["judge_recommendation"],
+        recommendation=scores["overall"]["ranking_tier"],
+        scored_at=datetime.fromisoformat(mcp_result["scoring_timestamp"])
     )
 ```
 
-This architecture meant we got both AI integration AND traditional web APIs with minimal duplicate code.
+**What this architecture achieved:**
+
+- **AI-First Development**: MCP tools contain core business logic, testable through AI assistants immediately
+- **Type Safety**: Pydantic models provide validation and auto-generate TypeScript interfaces
+- **Clean Data Transformation**: Raw MCP responses become structured, frontend-friendly formats
+- **Dual Interface Support**: AI agents get direct MCP access, humans get enterprise REST APIs
+- **Zero Code Duplication**: Single implementation serves both AI and web interfaces
+
+This MCP-first approach meant we got both cutting-edge AI integration AND traditional web APIs without compromising on developer experience.
 
 ## Redis Stack as Our Single Data Platform
 
@@ -222,4 +266,3 @@ The combination enabled rapid development of AI-native applications where human 
 ---
 
 Built at the [MCP - AI Agents Hackathon](https://juniper-giant-a3f.notion.site/MCP-AI-Agents-Hackathon-Sep-19-11c9fb250b4b80c488b7e2d7b6d6816d) in San Francisco.
-
