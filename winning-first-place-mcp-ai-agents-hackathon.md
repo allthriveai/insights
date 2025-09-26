@@ -131,9 +131,9 @@ This architecture meant we got both AI integration AND traditional web APIs with
 
 
 ```sidebyside
-PitchScoop needed to handle real-time audio transcription, AI analysis, leaderboard rankings, and session management - typically requiring separate databases, caching layers, and search engines. 
+PitchScoop needed to handle real-time audio transcription, AI analysis, leaderboard rankings, and session management. Typically requiring separate databases, caching layers, and search engines. 
 
-Redis Stack 7.2 became our secret weapon, consolidating all these capabilities into a single platform. Instead of orchestrating PostgreSQL + Elasticsearch + Pinecone/Qdrant + Memcached + WebSocket state management, we got everything through Redis - including vector database functionality for AI embeddings.
+Redis Stack 7.2 became our secret weapon, consolidating all these capabilities into a single platform. Instead of orchestrating PostgreSQL + Elasticsearch + Qdrant + Memcached + WebSocket state management, we got everything through Redis.
 ---
 ![Redis Logo](/images/insights/redis_logo.png)
 ```
@@ -200,6 +200,9 @@ This single data structure eliminated the need for complex ranking logic and gav
 
 PitchScoop won **1st place** and **Best Use Case of Redis** at the MCP - AI Agents Hackathon. 
 
+![The Win](/images/insights/mcp-hackathon.png)
+
+
 ### What We Delivered
 
 ✅ **32+ MCP Tools** - Complete pitch competition platform exposed as AI-callable functions  
@@ -209,7 +212,7 @@ PitchScoop won **1st place** and **Best Use Case of Redis** at the MCP - AI Agen
 
 ## Key Takeaways
 
-**MCP-first architecture** proved valuable for AI integration - building tools that AI assistants can call directly rather than forcing them through REST APIs.
+**MCP-first architecture** proved valuable for AI integration - building core business logic as MCP tools first, then wrapping them with REST APIs gave us both AI-native and traditional web interfaces from a single codebase.
 
 **Redis Stack** as a unified platform eliminated infrastructure complexity - one system handled caching, search, real-time updates, and leaderboards instead of requiring separate databases and services.
 
