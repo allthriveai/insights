@@ -75,78 +75,57 @@ graph TD
 
 **Result**: We ended up with 32+ MCP tools organized into 5 domains. Each domain has its own router, models, and business logic. This approach let us quickly test AI-assisted event management while still providing traditional web interfaces.
 
-### Mid-Morning: When MCP's Power Became Clear
+### Why MCP Made Technical Sense
 
-Here's the moment MCP proved its worth. Around 11 AM, a judge approached us:
-
-**Judge**: "Hey, can you score the FinTech team that just presented? I want to see how their tool usage compares to the other teams."
-
-**Traditional approach would be:**
-1. Judge logs into web dashboard
-2. Finds team in dropdown menu
-3. Fills out scoring form manually
-4. Switches to another tab to compare teams
-5. Manually calculates relative rankings
-6. 15+ minutes of clicking around
-
-**Our MCP approach:**
-
-Judge opens Claude (which they already have open) and says:
-
-*"Score session FT-001 using PitchScoop criteria"*
-
-Claude instantly calls our `analysis.score_pitch` MCP tool:
+The core decision was to build every feature as an MCP tool first, then add REST endpoints as wrappers. Here's what this actually looked like:
 
 ```python
-# This happens automatically when Claude calls our MCP tool
+# Our actual MCP tool for pitch scoring
 @mcp_tool("analysis.score_pitch")
 async def score_complete_pitch(session_id: str, event_id: str, judge_id: str = None):
+    """Score a complete pitch using AI analysis based on official criteria."""
     # Get the pitch transcript from Redis
     session = await redis_client.get(f"event:{event_id}:session:{session_id}")
-    transcript = session.final_transcript.total_text
     
-    # AI analysis with structured output
+    if not session or not session.get('final_transcript'):
+        return {"error": "No transcript available for scoring"}
+    
+    # Use Azure OpenAI + LangChain for structured analysis
     analysis = await ai_analyze_pitch(
-        transcript=transcript,
-        criteria=hackathon_scoring_criteria,
-        sponsor_tools=["OpenAI", "Qdrant", "MinIO", "Bright Data"]
+        transcript=session['final_transcript']['total_text'],
+        criteria=hackathon_scoring_criteria
     )
     
-    return {
-        "session_id": session_id,
-        "team_name": "MoneyFlow",
-        "scores": {
-            "idea": {"score": 22.5, "max_score": 25, "reasoning": "Novel micro-lending approach"},
-            "technical_implementation": {"score": 20.0, "max_score": 25, "reasoning": "Solid ML model, standard architecture"},
-            "tool_use": {"score": 23.0, "max_score": 25, "reasoning": "Excellent integration of OpenAI + Stripe + Plaid"},
-            "presentation_delivery": {"score": 21.0, "max_score": 25, "reasoning": "Clear demo, good time management"}
-        },
-        "total_score": 86.5,
-        "ranking_tier": "very_good"
-    }
+    # Store results in Redis
+    await redis_client.set(
+        f"event:{event_id}:scoring:{session_id}", 
+        analysis
+    )
+    
+    return analysis
 ```
 
-Claude responds in **2.8 seconds**:
+**What this enabled:**
 
-*"MoneyFlow scored 86.5/100 - Strong finalist candidate with excellent tool integration. Here's the breakdown:*
-- *Innovation: 22.5/25 - Novel micro-lending approach*
-- *Technical: 20/25 - Solid ML model, standard architecture* 
-- *Tool Use: 23/25 - Excellent OpenAI + Stripe + Plaid integration*
-- *Presentation: 21/25 - Clear demo, good time management"*
+1. **AI assistants could call our scoring directly** - no need to build custom web interfaces for every use case
+2. **Rapid prototyping** - we could test scoring logic through Claude/ChatGPT immediately
+3. **Automatic documentation** - MCP tools include their own schema definitions
+4. **Universal compatibility** - any MCP-compatible AI can use our tools
 
-Judge: *"How does this compare to other FinTech teams?"*
+The REST endpoints became simple wrappers:
 
-Claude calls `analysis.compare_pitches`:
+```python
+# REST endpoint just calls the MCP tool
+@app.post("/api/analysis/score")
+async def score_pitch_endpoint(request: ScoringRequest):
+    return await score_complete_pitch(
+        request.session_id, 
+        request.event_id, 
+        request.judge_id
+    )
+```
 
-*"MoneyFlow ranks #2 of 4 FinTech teams:*
-1. *CryptoPay (89.5/100) - Superior technical innovation*
-2. *MoneyFlow (86.5/100) - Excellent tool integration*  
-3. *BudgetAI (78/100) - Good UX, limited scope*
-4. *LendFast (72/100) - Basic implementation"*
-
-**The magic**: This entire interaction took 30 seconds. No context switching, no form filling, no manual calculations. The judge stayed in their natural workflow (conversing with AI) while getting enterprise-grade scoring analysis.
-
-**Why this mattered for winning**: The judges were amazed that they could have natural conversations about scoring instead of fighting with web interfaces. This user experience difference - not just the scoring algorithm - is what made our approach feel revolutionary.
+This architecture meant we got both AI integration AND traditional web APIs with minimal duplicate code.
 
 ## Afternoon: Redis Stack as Our Single Data Platform
 
