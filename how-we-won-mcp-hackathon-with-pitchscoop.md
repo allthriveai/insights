@@ -15,25 +15,24 @@ profile_contributors: ["Gina Levy", "Sarah Graup"]
 # Building with MCP + Redis Stack: Lessons from the AI Agents Hackathon
 
 *Technical learnings from the MCP - AI Agent Hackathon*
-
 ## The Challenge
-One day at the [MCP - AI Agents Hackathon](https://juniper-giant-a3f.notion.site/MCP-AI-Agents-Hackathon-Sep-19-11c9fb250b4b80c488b7e2d7b6d6816d) in San Francisco (Sep 19). 
+One day at the [MCP - AI Agents Hackathon](https://juniper-giant-a3f.notion.site/MCP-AI-Agents-Hackathon-Sep-19-11c9fb250b4b80c488b7e2d7b6d6816d) in San Francisco (Sep 19).
 **Goal: Explore MCP for AI integration and try Redis Stack for rapid development.**
 
 ```sidebyside
 
-We built **PitchScoop**, the AI scoop on your pitch. It is a pitch competition platform powered by MCP where AI agents manage events, score presentations, and update leaderboards. 
+We built **PitchScoop**, the AI scoop on your pitch. It is a AI Pitch Judge and Coach, powered by MCP where AI agents judge and score pitch events, update leaderboards, and give users feedback on content, presentation flow and style.  
 
 From the start, we challenged ourselves to run every part of the app through MCP. The hackathon ran from 9:30 AM to 4:30 PM, giving us about seven hours of focused development time.
 
-PitchScoop went on to win **first place** as well as **Best Use Case of Redis**. Here's what we learned about combining MCP with Redis Stack for rapid prototyping. There were over 200 people and 70 project submissions.
+PitchScoop went on to win the **First Place Grand Prize** as well as **Best Use Case of Redis**. Here's what we learned about combining MCP with Redis Stack for rapid prototyping. There were over 200 people and 70 project submissions.
 ---
 ![mcp-hackathon-first-place](images/pitchscoop.png)
 ```
 
 ```highlight
 ## What is MCP? 
-**Model Context Protocol (MCP)** is a standard that allows AI agents to call your application's functions directly. Instead of writing custom chatbot code that makes HTTP requests, you can expose your business logic as reusable tools that any AI agent can understand and use.
+**Model Context Protocol (MCP)** is a standard that allows AI agents to call your application's functions directly. Instead of writing custom code that makes HTTP requests, you can expose your business logic as reusable tools that any AI agent can understand and use.
 
 ### How MCPs compare to a traditional APIs
 With a traditional API, anyone who wants to integrate with your app has to write the client logic themselves. That usually means handling authentication, formatting requests, parsing responses, and managing errors. By exposing your functions through MCP, you provide a standardized way for AI agents to discover and call them, so integrators do not need to build a custom client from scratch.
@@ -44,7 +43,7 @@ This is powerful because it makes interoperability simple. You choose which func
 
 ## Breaking Down PitchScoop
 
-We decided to try an **MCP-first approach**: build every feature as an AI-callable tool first, then add REST endpoints as wrappers. We built this with **Python FAST API** following a strict **Domain Driven Design** principles and a Typscript seperate frontend repo. 
+We decided to try an **MCP-first approach**: build every feature as an AI-callable tool first, then add REST endpoints as wrappers for our front-end. We built this with **Python FASTAPI** following a strict **Domain Driven Design** principles and a Typescript separate frontend repo.
 
 
 ```mermaid
@@ -73,7 +72,7 @@ graph TD
     J --> J2[users.set_role]
 ```
 
-**Result**: We ended up with 32+ MCP tools organized into 5 domains. Each domain has its own router, models, and business logic. This approach let us quickly test AI-assisted event management while still providing traditional web interfaces.
+**Result**: We ended up with 32+ MCP tools organized into 5 domains. Each domain has its own router, models, and business logic. This approach let us quickly test AI Agent and state management while still providing traditional web interfaces.
 
 ### Why MCP Made Technical Sense
 
@@ -107,7 +106,7 @@ async def score_complete_pitch(session_id: str, event_id: str, judge_id: str = N
 
 **What this enabled:**
 
-1. **AI assistants could call our scoring directly** - no need to build custom web interfaces for every use case
+1. **AI Agents could call our scoring directly** - no need to build custom web interfaces for every use case
 2. **Rapid prototyping** - we could test scoring logic through Claude/ChatGPT immediately
 3. **Automatic documentation** - MCP tools include their own schema definitions
 4. **Universal compatibility** - any MCP-compatible AI can use our tools
@@ -163,10 +162,10 @@ async def score_pitch_endpoint(request: ScoringRequest):
 
 **What this architecture achieved:**
 
-- **AI-First Development**: MCP tools contain core business logic, testable through AI assistants immediately
+- **AI-First Development**: MCP tools contain core business logic, testable through AI Agents immediately
 - **Type Safety**: Pydantic models provide validation and auto-generate TypeScript interfaces
 - **Clean Data Transformation**: Raw MCP responses become structured, frontend-friendly formats
-- **Dual Interface Support**: AI agents get direct MCP access, humans get enterprise REST APIs
+- **Dual Interface Support**: AI agents get direct MCP access; the frontend gets REST APIs
 - **Zero Code Duplication**: Single implementation serves both AI and web interfaces
 
 This MCP-first approach meant we got both cutting-edge AI integration AND traditional web APIs without compromising on developer experience.
@@ -182,7 +181,7 @@ Redis Stack 7.2 became our secret weapon, consolidating all these capabilities i
 ![Redis Logo](images/redis_logo.png)
 ```
 
-## How we used Redis for everything
+## How We Used Redis for Everything
 
 ```mermaid
 graph TB
@@ -236,32 +235,33 @@ top_teams = await redis_client.zrevrange(
 )
 ```
 
-**Why this is powerful**: Update any team's score and the leaderboard instantly reflects new rankings. No sorting algorithms, no database queries to recalculate positions - Redis handles it all automatically.
+**Why this is powerful**: In Redis, a Sorted Set is like a regular Set but with an extra score value attached to each element, allowing you to keep items unique while also maintaining them in a sorted order for fast ranking, range queries, and leaderboards. So update any team's score and the leaderboard instantly reflects new rankings. No sorting algorithms, no database queries to recalculate positions, Redis handles it all automatically.
 
 This single data structure eliminated the need for complex ranking logic and gave us real-time competition updates with zero additional infrastructure.
 
 ## The Results
 
-PitchScoop won **1st place** and **Best Use Case of Redis** at the MCP - AI Agents Hackathon. 
+PitchScoop won **First Place Grand Prize** and **Best Use Case of Redis** at the MCP - AI Agents Hackathon.
 
 ![The Win](images/mcp-hackathon.png)
 
 
 ### What We Delivered
 
-✅ **32+ MCP Tools** - Complete pitch competition platform exposed as AI-callable functions  
-✅ **Functional Frontend** - TypeScript React interface for managing competitions, viewing leaderboards, and accessing AI analysis  
-✅ **Real-time scoring** - AI analysis of pitch transcripts with structured feedback  
-✅ **Live leaderboards** - Redis Sorted Sets providing instant rankings  
-✅ **Working demo** - End-to-end competition management through AI assistants
+✅ **32+ MCP Tools** - Complete AI Pitch Judge and Coach platform exposed as AI-callable functions
+✅ **Functional Frontend** - TypeScript React interface for managing pitch competitions, viewing leaderboards, and accessing AI analysis
+✅ **Real-time scoring** - AI analysis of pitch transcripts to score and provide structured feedback
+✅ **Live leaderboards** - Redis Sorted Sets providing instant rankings
+✅ **Working demo** - End-to-end pitch competition management through AI Agents
 
+* Sarah focused on buliding the frontend 
+* Gina focused on how we mapped the idea to mcps, rest apis, and leading the pitch demo 
+* Allie focused on building out the mcp server and backend. 
 ## Key Takeaways
 
-**MCP-first architecture** proved valuable for AI integration - building tools that AI assistants can call directly rather than forcing them through REST APIs.
+**MCP-first architecture** proved valuable for AI integration, building tools that AI Agents can call directly rather than forcing them through REST APIs.
 
-**Redis Stack** as a unified platform eliminated infrastructure complexity - one system handled caching, search, real-time updates, and leaderboards instead of requiring separate databases and services.
-
-The combination enabled rapid development of AI-native applications where human users and AI assistants can interact with the same underlying business logic through different interfaces.
+This combination enabled rapid development of AI-native applications where human users and AI Agents can interact with the same underlying business logic through different interfaces.
 
 ---
 
