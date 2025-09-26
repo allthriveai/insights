@@ -7,7 +7,7 @@ featured_image: "/images/insights/gina-comedy-pitch.png"
 youtube_video: ""
 excerpt: "What happens when you pitch your startup as a comedy routine? Lessons from winning The Battery's Tech Roast Comedy Night and why every pitch does better with fun."
 featured_on_homepage: true
-priority:6
+priority: 6
 draft: false
 featured_link: ""
 ---
@@ -178,4 +178,4 @@ So next time you're preparing a pitch, ask yourself: where's the fun in this? Yo
 
 ---
 
-*Want to see more examples of founders using unconventional approaches to build better startups? [Subscribe to our insights](/newsletter) for weekly stories from the entrepreneurial frontier.*i
+*Want to see more examples of founders using unconventional approaches to build better startups? [Subscribe to our insights](/newsletter) for weekly stories from the entrepreneurial frontier.*
